@@ -23,6 +23,8 @@ namespace ListViewBaseSelectionRepro
         {
             base.OnApplyTemplate();
             Debug.WriteLine("OnApplyTemplate: " + SelectedIndex);
+
+            // Uncomment to make it work
             // SelectedIndex = (int)CustomSelectedIndex;
         }
 
