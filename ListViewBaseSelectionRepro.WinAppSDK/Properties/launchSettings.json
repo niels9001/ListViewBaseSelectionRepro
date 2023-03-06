@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ListViewBaseSelectionRepro (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ListViewBaseSelectionRepro (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
