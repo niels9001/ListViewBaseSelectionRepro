@@ -10,21 +10,15 @@
             <Setter Property="ItemsPanel">
                 <Setter.Value>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" />
+                        <StackPanel Orientation="Vertical" />
                     </ItemsPanelTemplate>
                 </Setter.Value>
             </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="local:CustomListViewBase">
-                        <Grid
-                            Height="{TemplateBinding Height}"
-                            VerticalAlignment="Stretch"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                            <ItemsPresenter Margin="{TemplateBinding Padding}" VerticalAlignment="Stretch" />
+                        <Grid>
+                            <ItemsPresenter />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>

@@ -8,38 +8,56 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <StackPanel
-        Padding="64"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Orientation="Vertical"
-        Spacing="24">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
         <StackPanel
             HorizontalAlignment="Center"
-            Orientation="Horizontal"
+            VerticalAlignment="Center"
+            Orientation="Vertical"
             Spacing="12">
-            <TextBlock FontWeight="SemiBold" Text="Selected index: " />
-            <TextBlock Text="{Binding ElementName=MyCustomListViewBase, Path=SelectedIndex}" />
-        </StackPanel>
-        <local:CustomListViewBase
-            x:Name="MyCustomListViewBase"
-            HorizontalAlignment="Center"
-            SelectedIndex="1">
-            <local:CustomListViewBaseItem Content="Item 1" />
-            <local:CustomListViewBaseItem Content="Item 2" />
-            <local:CustomListViewBaseItem Content="Item 3" />
-            <local:CustomListViewBaseItem Content="Item 4" />
-        </local:CustomListViewBase>
+            <TextBlock FontWeight="SemiBold" Text="Custom ListViewBase XAML defined items (does not work), SelectedIndex = 1" />
 
+            <local:CustomListViewBase SelectedIndex="1">
+                <local:CustomListViewBaseItem Content="Item 1" />
+                <local:CustomListViewBaseItem Content="Item 2" />
+                <local:CustomListViewBaseItem Content="Item 3" />
+                <local:CustomListViewBaseItem Content="Item 4" />
+            </local:CustomListViewBase>
+        </StackPanel>
+        <StackPanel
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical"
+            Spacing="12">
+            <TextBlock FontWeight="SemiBold"
+                       Text="Custom ListViewBase Binded items (works), SelectedIndex = 1" />
+
+            <local:CustomListViewBase
+                x:Name="BoundCustomListViewBase"
+                ItemsSource="{x:Bind itemsCollection, Mode=OneWay}"
+                SelectedIndex="1" />
+        </StackPanel>
         <ListView
-            Margin="0,120,0,0"
-            Header="Default ListView, SelectedIndex = 1"
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Header="Default ListView (works), SelectedIndex = 1"
             SelectedIndex="1">
             <ListViewItem Content="Item 1" />
             <ListViewItem Content="Item 2" />
             <ListViewItem Content="Item 3" />
             <ListViewItem Content="Item 4" />
         </ListView>
-
-    </StackPanel>
+    </Grid>
 </Page>
